@@ -81,7 +81,7 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8">
           <div className="flex-1">
             <h1 className="text-5xl md:text-6xl font-bold mb-4">
-              Hi, I'm <span className="text-blue-400">Roneet Bala</span>
+              Hi, I&apos;m <span className="text-blue-400">Roneet Bala</span>
             </h1>
             <p className="text-xl text-gray-400 mb-6">
               Full Stack Developer | Creating digital experiences
