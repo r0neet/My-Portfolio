@@ -122,11 +122,13 @@ const HomePage = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {galleryImages.map((src, index) => (
-              <img 
+              <Image
                 key={index}
                 src={src}
                 alt={`Gallery image ${index + 1}`}
                 className="rounded-lg hover:scale-105 transition-transform duration-300"
+                width={400}
+                height={400}
               />
             ))}
           </div>
