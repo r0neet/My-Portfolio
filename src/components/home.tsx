@@ -26,12 +26,7 @@ const HomePage = () => {
       tags: ["TypeScript", "GraphQL", "PostgreSQL"],
       link: "#"
     },
-    {
-        title: "Project 4",
-      description: "A brief description of your third project",
-      tags: ["TypeScript", "GraphQL", "PostgreSQL"],
-      link: "#"
-    }
+    
   ];
 
   // Sample gallery images - replace with your actual images
