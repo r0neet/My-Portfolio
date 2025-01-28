@@ -37,7 +37,7 @@ const HomePage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100">
+    <div className="min-h-screen bg-black text-gray-100">
       {/* Navigation */}
       <nav className="fixed w-full bg-gray-900/95 backdrop-blur-sm z-50">
         <div className="max-w-7xl mx-auto px-4">
@@ -46,7 +46,7 @@ const HomePage = () => {
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              <a href="#about" className="hover:text-blue-400 transition-colors">About</a>
+              <a href="/about" className="hover:text-blue-400 transition-colors">About</a>
               <a href="#projects" className="hover:text-blue-400 transition-colors">Projects</a>
               <a href="#contact" className="hover:text-blue-400 transition-colors">Contact</a>
             </div>
@@ -73,7 +73,7 @@ const HomePage = () => {
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-2">
           <div className="flex-1">
             <h1 className="text-5xl md:text-6xl font-bold mb-4">
               Hi, I&apos;m <span className="text-blue-400">Roneet Bala</span>
@@ -82,22 +82,22 @@ const HomePage = () => {
               Full Stack Developer | Creating digital experiences
             </p>
             <div className="flex gap-4">
-              <a href="#" className="p-2 hover:text-blue-400 transition-colors">
+              <a href="https://github.com/r0neet" className="p-2 hover:text-blue-400 transition-colors">
                 <GithubIcon size={24} />
               </a>
-              <a href="#" className="p-2 hover:text-blue-400 transition-colors">
+              <a href="https://www.linkedin.com/in/roneetbala/" className="p-2 hover:text-blue-400 transition-colors">
                 <LinkedinIcon size={24} />
               </a>
-              <a href="#" className="p-2 hover:text-blue-400 transition-colors">
+              <a href="mailto:roneetbala2002@gmail.com" className="p-2 hover:text-blue-400 transition-colors">
                 <Mail size={24} />
               </a>
             </div>
           </div>
-          <div className="flex-1 flex justify-center">
+          <div className="flex-1 flex justify-center overflow-hidden">
             <Image
               src="/hero.jpeg" 
               alt="Your Profile" 
-              className="rounded-full w-64 h-64 object-cover border-4 border-blue-400"
+              className="rounded w-70 h-100 object-cover"
               width={700}
               height={700}
             />
@@ -129,6 +129,54 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+
+      <section>
+  <h2 className="py-16 px-4 text-2xl font-semibold">KEY COMPONENTS</h2>
+  <div className="text-xl text-black">
+    <div className="grid grid-cols-4 gap-4 text-center mx-16">
+      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+        Process improvement
+      </div>
+      <div className="bg-white p-2 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        Data-driven strategic planning
+      </div>
+      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+        Cost-benefit analysis
+      </div>
+      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+        Report writing and presenting
+      </div>
+      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+        Website
+      </div>
+      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+        Youtube Channel
+      </div>
+      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+        Critical thinking skills
+      </div>
+      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+        Excellent communication skills
+      </div>
+      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+        Strong interpersonal skills
+      </div>
+      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+        Exceptional organisational skills
+      </div>
+      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+        Proactive and self-motivated
+      </div>
+      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+        Design Expertise
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 
       {/* Projects Section */}
       <section id="projects" className="py-16 px-4">
