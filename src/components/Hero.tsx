@@ -14,6 +14,7 @@ const categories: Category[] = [
   },
   {
     title: 'People and Arts',
+    // eslint-disable-next-line jsx-a11y/alt-text
     icon: <Image className="w-12 h-12 text-blue-400" />,
   },
   {

@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { MenuIcon, XCircle, Link2, Mail, LinkedinIcon, GithubIcon } from 'lucide-react';
 import Image from 'next/image';
+import { CardHoverEffectDemo } from './cardSection';
 
 const HomePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,7 +43,7 @@ const HomePage = () => {
       <nav className="fixed w-full bg-gray-900/95 backdrop-blur-sm z-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <span className="text-xl font-bold">Your Name</span>
+            <span className="text-xl font-bold">Roneet Bala</span>
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
@@ -129,7 +130,8 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
+      
+     <CardHoverEffectDemo/>3
 
       <section>
   <h2 className="py-16 px-4 text-2xl font-semibold">KEY COMPONENTS</h2>
