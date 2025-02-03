@@ -34,7 +34,7 @@ const HomePage = () => {
   const galleryImages = [
     "/cod.mp4",
     "/hero.jpeg",
-    "/image.jpeg"
+    "/image.jpg"
   ];
 
   return (
