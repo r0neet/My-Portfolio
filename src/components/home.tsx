@@ -32,9 +32,9 @@ const HomePage = () => {
 
   // Sample gallery images - replace with your actual images
   const galleryImages = [
+    "/cod.mp4",
     "/hero.jpeg",
-    "/hero.jpeg",
-    "/Image.jpeg",
+    "/image.jpeg"
   ];
 
   return (
