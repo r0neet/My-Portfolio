@@ -9,21 +9,21 @@ export function CardHoverEffectDemo() {
 }
 export const projects = [
   {
-    title: "Stripe",
+    title: "Udemy",
     description:
-      "A technology company that builds economic infrastructure for the internet.",
-    link: "https://stripe.com",
+      "Microsoft Access SQl: SQL from Absolute Beginners To Expert. CERTIFICATION OF COMPLETION",
+    link: "https://drive.google.com/file/d/1sC--sbWR8jdJrzSZtue6xL6KrFP7JP4W/view?usp=drive_link",
   },
   {
-    title: "Netflix",
+    title: "Udemy",
     description:
-      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
-    link: "https://netflix.com",
+      "Ultimate Web Designer & Web Developer Course. CERTIFICATION OF COMPLETION", 
+    link: "",
   },
   {
-    title: "Google",
+    title: "INTERSHIP CERTIFICATE",
     description:
-      "A multinational technology company that specializes in Internet-related services and products.",
-    link: "https://google.com",
+      "Cretificate of Completion of Intership at RS.software(India).Ltd",
+    link: "https://drive.google.com/file/d/1O6_woHleTMKtjv0XWR82oBsHJKpI3WXF/view?usp=drive_link",
   },
 ];

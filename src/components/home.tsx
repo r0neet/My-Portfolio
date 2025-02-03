@@ -34,7 +34,7 @@ const HomePage = () => {
   const galleryImages = [
     "/hero.jpeg",
     "/hero.jpeg",
-    "/hero.jpeg",
+    "/Image.jpeg",
   ];
 
   return (
@@ -112,8 +112,14 @@ const HomePage = () => {
           <h2 className="text-3xl font-bold mb-8">About Me</h2>
           <div className="mb-12">
             <p className="text-gray-300 mb-4">
-              Your professional summary and background information goes here. Share your passion
-              for development and what drives you to create amazing digital experiences.
+            Hi, I’m Roneet Bala Aka OMI,I am a Freshly Graduated Coder with a passion for creating and designing since my childhood. 
+            Whether it’s building innovative digital solutions or designing intuitive experiences, I’ve always been drawn to the creative process.
+            Beyond coding, I’m a big fan of Marvel, Bitcoin,and stock trading (especially F&O). 
+            I love the thrill of market analysis and strategy, much like my gaming sessions in Fortnite and Warzone, where quick thinking and creativity rule.
+            My academic journey has shaped my problem-solving skills, and 
+            I’m constantly exploring new ways to merge my passions into impactful projects.
+
+            Let’s connect and see how we can collaborate!
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -133,6 +139,8 @@ const HomePage = () => {
       
      <CardHoverEffectDemo/>3
 
+     {/*key components*/}
+
       <section>
   <h2 className="py-16 px-4 text-2xl font-semibold">KEY COMPONENTS</h2>
   <div className="text-xl text-black">
@@ -140,7 +148,7 @@ const HomePage = () => {
       <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
         Process improvement
       </div>
-      <div className="bg-white p-2 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+      <div className="bg-white py-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
         Data-driven strategic planning
       </div>
       <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
@@ -150,10 +158,10 @@ const HomePage = () => {
         Report writing and presenting
       </div>
       <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Website
+        Honesty
       </div>
       <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Youtube Channel
+        prompt designing
       </div>
       <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
         Critical thinking skills
@@ -249,7 +257,7 @@ const HomePage = () => {
 
       {/* Footer */}
       <footer className="py-8 text-center text-gray-400">
-        <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} RoneetBala. All rights reserved.</p>
       </footer>
     </div>
   );
