@@ -31,11 +31,13 @@ const HomePage = () => {
   ];
 
   // Sample gallery images - replace with your actual images
-  const galleryImages = [
-    "/cod.mp4",
-    "/hero.jpeg",
-    "/image.jpg"
-  ];
+    const galleryImages = [
+      { type: "image", src: "/image1.jpg" },
+      { type: "image", src: "/image2.jpg" },
+      { type: "video", src: "/video.mp4" },
+    ];
+    
+  
 
   return (
     <div className="min-h-screen bg-black text-gray-100">
@@ -123,17 +125,29 @@ const HomePage = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {galleryImages.map((src, index) => (
-              <Image
-                key={index}
-                src={src}
-                alt={`Gallery image ${index + 1}`}
-                className="rounded-lg hover:scale-105 transition-transform duration-300"
-                width={400}
-                height={400}
-              />
-            ))}
-          </div>
+      {galleryImages.map((item, index) => (
+    <div key={index} className="rounded-lg overflow-hidden">
+      {item.type === "image" ? (
+        <Image
+          src={item.src}
+          alt={`Gallery image ${index + 1}`}
+          className="rounded-lg hover:scale-105 transition-transform duration-300"
+          width={400}
+          height={400}
+        />
+      ) : (
+        <video
+          controls
+          className="rounded-lg hover:scale-105 transition-transform duration-300 w-full h-auto"
+        >
+          <source src={item.src} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      )}
+    </div>
+  ))}
+</div>
+
         </div>
       </section>
       
