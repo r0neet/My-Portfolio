@@ -32,9 +32,9 @@ const HomePage = () => {
 
   // Sample gallery images - replace with your actual images
     const galleryImages = [
-      { type: "image", src: "/image1.jpg" },
-      { type: "image", src: "/image2.jpg" },
-      { type: "video", src: "/video.mp4" },
+      { type: "image", src: "/image.jpg" },
+      { type: "image", src: "/hero.jpg" },
+      { type: "video", src: "/cod.mp4" },
     ];
     
   
@@ -137,7 +137,7 @@ const HomePage = () => {
         />
       ) : (
         <video
-          controls
+          autoPlay loop muted playsInline
           className="rounded-lg hover:scale-105 transition-transform duration-300 w-full h-auto"
         >
           <source src={item.src} type="video/mp4" />
