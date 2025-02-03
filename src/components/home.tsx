@@ -33,7 +33,7 @@ const HomePage = () => {
   // Sample gallery images - replace with your actual images
     const galleryImages = [
       { type: "image", src: "/image.jpg" },
-      { type: "image", src: "/hero.jpg" },
+      { type: "image", src: "/IMG_9371.jpg" },
       { type: "video", src: "/cod.mp4" },
     ];
     
