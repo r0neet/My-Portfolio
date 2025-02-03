@@ -18,7 +18,7 @@ export const projects = [
     title: "Udemy",
     description:
       "Ultimate Web Designer & Web Developer Course. CERTIFICATION OF COMPLETION", 
-    link: "",
+    link: "https://drive.google.com/file/d/1YRz5qnUhLUFDKQoB_8b193JV1WvU9jXA/view?usp=drive_link",
   },
   {
     title: "INTERSHIP CERTIFICATE",
