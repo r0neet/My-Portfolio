@@ -27,17 +27,17 @@ const HomePage = () => {
       tags: ["TypeScript", "GraphQL", "PostgreSQL"],
       link: "#"
     },
-    
+
   ];
 
   // Sample gallery images - replace with your actual images
-    const galleryImages = [
-      { type: "image", src: "/image.jpg" },
-      { type: "image", src: "/IMG_9371.jpg" },
-      { type: "video", src: "/cod.mp4" },
-    ];
-    
-  
+  const galleryImages = [
+    { type: "image", src: "/image.jpg" },
+    { type: "image", src: "/IMG_9371.jpg" },
+    { type: "video", src: "/cod.mp4" },
+  ];
+
+
 
   return (
     <div className="min-h-screen bg-black text-gray-100">
@@ -46,7 +46,7 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <span className="text-xl font-bold">Roneet Bala</span>
-            
+
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
               <a href="/about" className="hover:text-blue-400 transition-colors">About</a>
@@ -55,7 +55,7 @@ const HomePage = () => {
             </div>
 
             {/* Mobile Menu Button */}
-            <button 
+            <button
               className="md:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
@@ -98,8 +98,8 @@ const HomePage = () => {
           </div>
           <div className="flex-1 flex justify-center overflow-hidden">
             <Image
-              src="/hero.jpeg" 
-              alt="Your Profile" 
+              src="/hero.jpeg"
+              alt="Your Profile"
               className="rounded w-70 h-100 object-cover"
               width={700}
               height={700}
@@ -114,90 +114,90 @@ const HomePage = () => {
           <h2 className="text-3xl font-bold mb-8">About Me</h2>
           <div className="mb-12">
             <p className="text-gray-300 mb-4">
-            Hi, I’m Roneet Bala Aka OMI,I am a Freshly Graduated Coder with a passion for creating and designing since my childhood. 
-            Whether it’s building innovative digital solutions or designing intuitive experiences, I’ve always been drawn to the creative process.
-            Beyond coding, I’m a big fan of Marvel, Bitcoin,and stock trading (especially F&O). 
-            I love the thrill of market analysis and strategy, much like my gaming sessions in Fortnite and Warzone, where quick thinking and creativity rule.
-            My academic journey has shaped my problem-solving skills, and 
-            I’m constantly exploring new ways to merge my passions into impactful projects.
+              Hi, I’m Roneet Bala Aka OMI,I am a Freshly Graduated Coder with a passion for creating and designing since my childhood.
+              Whether it’s building innovative digital solutions or designing intuitive experiences, I’ve always been drawn to the creative process.
+              Beyond coding, I’m a big fan of Marvel, Bitcoin,and stock trading (especially F&O).
+              I love the thrill of market analysis and strategy, much like my gaming sessions in Fortnite and Warzone, where quick thinking and creativity rule.
+              My academic journey has shaped my problem-solving skills, and
+              I’m constantly exploring new ways to merge my passions into impactful projects.
 
-            Let’s connect and see how we can collaborate!
+              Let’s connect and see how we can collaborate!
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-      {galleryImages.map((item, index) => (
-    <div key={index} className="rounded-lg overflow-hidden">
-      {item.type === "image" ? (
-        <Image
-          src={item.src}
-          alt={`Gallery image ${index + 1}`}
-          className="rounded-lg hover:scale-105 transition-transform duration-300"
-          width={400}
-          height={400}
-        />
-      ) : (
-        <video
-          autoPlay loop muted playsInline
-          className="rounded-lg hover:scale-105 transition-transform duration-300 w-full h-auto"
-        >
-          <source src={item.src} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      )}
-    </div>
-  ))}
-</div>
+            {galleryImages.map((item, index) => (
+              <div key={index} className="rounded-lg overflow-hidden">
+                {item.type === "image" ? (
+                  <Image
+                    src={item.src}
+                    alt={`Gallery image ${index + 1}`}
+                    className="rounded-lg hover:scale-105 transition-transform duration-300"
+                    width={400}
+                    height={400}
+                  />
+                ) : (
+                  <video
+                    autoPlay loop muted playsInline
+                    className="rounded-lg hover:scale-105 transition-transform duration-300 w-full h-auto"
+                  >
+                    <source src={item.src} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                )}
+              </div>
+            ))}
+          </div>
 
         </div>
       </section>
-      
-     <CardHoverEffectDemo/>3
 
-     {/*key components*/}
+      <CardHoverEffectDemo />
+
+      {/*key components*/}
 
       <section>
-  <h2 className="py-16 px-4 text-2xl font-semibold">KEY COMPONENTS</h2>
-  <div className="text-xl text-black">
-    <div className="grid grid-cols-4 gap-4 text-center mx-16">
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Process improvement
-      </div>
-      <div className="bg-white py-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-        Data-driven strategic planning
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Cost-benefit analysis
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Report writing and presenting
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Honesty
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        prompt designing
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Critical thinking skills
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Excellent communication skills
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Strong interpersonal skills
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Exceptional organisational skills
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Proactive and self-motivated
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Design Expertise
-      </div>
-    </div>
-  </div>
-</section>
+        <h2 className="py-16 px-4 text-2xl font-semibold">KEY COMPONENTS</h2>
+        <div className="text-xl text-black">
+          <div className="grid grid-cols-4 gap-4 text-center mx-16">
+            <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+              Process improvement
+            </div>
+            <div className="bg-white py-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+              Data-driven strategic planning
+            </div>
+            <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+              Cost-benefit analysis
+            </div>
+            <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+              Report writing and presenting
+            </div>
+            <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+              Honesty
+            </div>
+            <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+              prompt designing
+            </div>
+            <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+              Critical thinking skills
+            </div>
+            <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+              Excellent communication skills
+            </div>
+            <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+              Strong interpersonal skills
+            </div>
+            <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+              Exceptional organisational skills
+            </div>
+            <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+              Proactive and self-motivated
+            </div>
+            <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+              Design Expertise
+            </div>
+          </div>
+        </div>
+      </section>
 
 
 
@@ -213,7 +213,7 @@ const HomePage = () => {
                 <p className="text-gray-400 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag, tagIndex) => (
-                    <span 
+                    <span
                       key={tagIndex}
                       className="bg-blue-400/10 text-blue-400 px-2 py-1 rounded-full text-sm"
                     >
@@ -221,7 +221,7 @@ const HomePage = () => {
                     </span>
                   ))}
                 </div>
-                <a 
+                <a
                   href={project.link}
                   className="inline-flex items-center text-blue-400 hover:text-blue-300"
                 >
@@ -240,26 +240,26 @@ const HomePage = () => {
           <form className="space-y-6">
             <div>
               <label className="block text-sm font-medium mb-2">Name</label>
-              <input 
+              <input
                 type="text"
                 className="w-full px-4 py-2 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
               />
             </div>
             <div>
               <label className="block text-sm font-medium mb-2">Email</label>
-              <input 
+              <input
                 type="email"
                 className="w-full px-4 py-2 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
               />
             </div>
             <div>
               <label className="block text-sm font-medium mb-2">Message</label>
-              <textarea 
+              <textarea
                 rows={4}
                 className="w-full px-4 py-2 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
               ></textarea>
             </div>
-            <button 
+            <button
               type="submit"
               className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
             >
