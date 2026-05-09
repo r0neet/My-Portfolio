@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { AnimatePresence, motion } from "motion/react";
+import Image from "next/image";
 
 // All 12 images that will rotate through the 8 grid slots
 const ALL_IMAGES = [
@@ -74,10 +75,12 @@ export default function HeroScrollDemo() {
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                   className="absolute inset-0"
                 >
-                  <img
+                  <Image
+                    fill
                     src={src}
                     alt={`Gallery image ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, 25vw"
                   />
                 </motion.div>
               </AnimatePresence>
