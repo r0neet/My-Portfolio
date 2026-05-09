@@ -243,12 +243,13 @@ const HomePage = () => {
                   }}
                 >
                   <div className="mx-2 flex-1">
-                    <div className="relative mt-2 aspect-[16/10] w-full">
-                      <img
-                        loading="lazy"
-                        className="absolute inset-0 h-full w-full rounded-[16px] bg-[#000000] object-cover contrast-75"
+                    <div className="relative mt-2 aspect-[16/10] w-full overflow-hidden rounded-[16px]">
+                      <Image
+                        fill
+                        className="bg-[#000000] object-cover contrast-75"
                         alt={project.title}
                         src={project.image}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         style={{
                           boxShadow: "rgba(0, 0, 0, 0.05) 0px 5px 6px 0px",
                         }}
