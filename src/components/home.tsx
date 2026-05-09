@@ -1,6 +1,6 @@
 "use client"
 import { useState } from 'react';
-import { MenuIcon, XCircle, Mail, LinkedinIcon, GithubIcon } from 'lucide-react';
+import { MenuIcon, XCircle, Link2, Mail, LinkedinIcon, GithubIcon } from 'lucide-react';
 import Image from 'next/image';
 import { CardHoverEffectDemo } from './cardSection';
 import { CometCard } from "@/components/ui/comet-card";
