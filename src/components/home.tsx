@@ -1,34 +1,13 @@
 "use client"
 import { useState } from 'react';
-import { MenuIcon, XCircle, Link2, Mail, LinkedinIcon, GithubIcon } from 'lucide-react';
+import { MenuIcon, XCircle, Mail, LinkedinIcon, GithubIcon } from 'lucide-react';
 import Image from 'next/image';
-import { CardHoverEffectDemo } from './cardSection';
+import MacbookScrollDemo from './macbook-scroll-demo';
+import HeroScrollDemo from './hero-scroll-demo';
 
 const HomePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Sample projects data - replace with your actual projects
-  const projects = [
-    {
-      title: "Project 1",
-      description: "A brief description of your first project",
-      tags: ["React", "Node.js", "MongoDB"],
-      link: "#"
-    },
-    {
-      title: "Project 2",
-      description: "A brief description of your second project",
-      tags: ["Next.js", "Tailwind", "Firebase"],
-      link: "#"
-    },
-    {
-      title: "Project 3",
-      description: "A brief description of your third project",
-      tags: ["TypeScript", "GraphQL", "PostgreSQL"],
-      link: "#"
-    },
-    
-  ];
 
   // Sample gallery images - replace with your actual images
     const galleryImages = [
@@ -74,39 +53,10 @@ const HomePage = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-2">
-          <div className="flex-1">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
-              Hi, I&apos;m <span className="text-blue-400">Roneet Bala</span>
-            </h1>
-            <p className="text-xl text-gray-400 mb-6">
-              Full Stack Developer | Creating digital experiences
-            </p>
-            <div className="flex gap-4">
-              <a href="https://github.com/r0neet" className="p-2 hover:text-blue-400 transition-colors">
-                <GithubIcon size={24} />
-              </a>
-              <a href="https://www.linkedin.com/in/roneetbala/" className="p-2 hover:text-blue-400 transition-colors">
-                <LinkedinIcon size={24} />
-              </a>
-              <a href="mailto:roneetbala2002@gmail.com" className="p-2 hover:text-blue-400 transition-colors">
-                <Mail size={24} />
-              </a>
-            </div>
-          </div>
-          <div className="flex-1 flex justify-center overflow-hidden">
-            <Image
-              src="/hero.jpeg" 
-              alt="Your Profile" 
-              className="rounded w-70 h-100 object-cover"
-              width={700}
-              height={700}
-            />
-          </div>
-        </div>
-      </section>
+      {/* Hero Section using MacbookScroll */}
+      <div className="pt-16">
+        <MacbookScrollDemo />
+      </div>
 
       {/* About Section */}
       <section id="about" className="py-16 bg-gray-800/50 px-4">
@@ -150,88 +100,11 @@ const HomePage = () => {
 
         </div>
       </section>
-      
-     <CardHoverEffectDemo/>3
 
-     {/*key components*/}
+      {/* Hero Scroll Gallery Section */}
 
-      <section>
-  <h2 className="py-16 px-4 text-2xl font-semibold">KEY COMPONENTS</h2>
-  <div className="text-xl text-black">
-    <div className="grid grid-cols-4 gap-4 text-center mx-16">
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Process improvement
-      </div>
-      <div className="bg-white py-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-        Data-driven strategic planning
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Cost-benefit analysis
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Report writing and presenting
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Honesty
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        prompt designing
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Critical thinking skills
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Excellent communication skills
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Strong interpersonal skills
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Exceptional organisational skills
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Proactive and self-motivated
-      </div>
-      <div className="bg-white py-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-        Design Expertise
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-      {/* Projects Section */}
-      <section id="projects" className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, index) => (
-              <div key={index} className="bg-gray-800 rounded-lg p-6 hover:bg-gray-800/80 transition-colors">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-400 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span 
-                      key={tagIndex}
-                      className="bg-blue-400/10 text-blue-400 px-2 py-1 rounded-full text-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <a 
-                  href={project.link}
-                  className="inline-flex items-center text-blue-400 hover:text-blue-300"
-                >
-                  View Project <Link2 size={16} className="ml-1" />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Hero Scroll Gallery Section */}
+      <HeroScrollDemo />
 
       {/* Contact Section */}
       <section id="contact" className="py-16 bg-gray-800/50 px-4">
