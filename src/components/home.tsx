@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import { MenuIcon, XCircle, Link2, Mail, LinkedinIcon, GithubIcon } from 'lucide-react';
 import Image from 'next/image';
+import MacbookScrollDemo from './macbook-scroll-demo';
+import HeroScrollDemo from './hero-scroll-demo';
 import { CardHoverEffectDemo } from './cardSection';
 import { CometCard } from "@/components/ui/comet-card";
 import { Cover } from "@/components/ui/cover";
@@ -126,6 +128,11 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Macbook Scroll Hero Section */}
+      <div className="pt-8">
+        <MacbookScrollDemo />
+      </div>
+
       {/* About Section */}
       <section id="about" className="py-16 bg-gray-800/50 px-4">
         <div className="max-w-7xl mx-auto">
@@ -168,6 +175,9 @@ const HomePage = () => {
 
         </div>
       </section>
+
+      {/* Hero Scroll Gallery Section */}
+      <HeroScrollDemo />
 
       <CardHoverEffectDemo />
 
