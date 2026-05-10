@@ -1,23 +1,23 @@
 "use client";
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useRef } from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 
 // All 12 images that will rotate through the 8 grid slots
 const ALL_IMAGES = [
-  "/img1.jpg",
-  "/img2.jpg",
-  "/img3.jpg",
-  "/img4.JPEG",
-  "/img5.jpg",
-  "/img6.jpg",
-  "/img7.jpg",
-  "/img8.jpg",
-  "/img9.jpg",
-  "/img10.jpg",
-  "/img11.jpg",
-  "/img12.jpg",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443288/img1_lrgxxo.png",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443290/img2_hzx4mx.png",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443296/img3_b9otf3.png",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443299/img4_fpovju.jpg",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443299/img5_cpeq2e.png",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443287/img6_pzpvhi.jpg",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443297/img7_bspqs6.jpg",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443295/img8_o2swfm.jpg",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443299/img9_psehkh.jpg",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443299/img10_kd8puj.jpg",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443298/img11_clxrar.jpg",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443294/img12_bffy4f.jpg",
 ];
 
 export default function HeroScrollDemo() {
@@ -25,6 +25,21 @@ export default function HeroScrollDemo() {
   const [gridImages, setGridImages] = useState<string[]>(
     ALL_IMAGES.slice(0, 8)
   );
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  // Only run the rotation interval when the section is visible
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const rotateRandomSlot = useCallback(() => {
     setGridImages((prev) => {
@@ -42,12 +57,13 @@ export default function HeroScrollDemo() {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(rotateRandomSlot, 2000);
+    if (!isVisible) return;
+    const interval = setInterval(rotateRandomSlot, 3500); // Slower rotation: 3.5s instead of 2s
     return () => clearInterval(interval);
-  }, [rotateRandomSlot]);
+  }, [rotateRandomSlot, isVisible]);
 
   return (
-    <div className="flex flex-col overflow-hidden">
+    <div ref={sectionRef} className="flex flex-col overflow-hidden">
       <ContainerScroll
         titleComponent={
           <>
@@ -69,10 +85,10 @@ export default function HeroScrollDemo() {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={src}
-                  initial={{ opacity: 0, scale: 1.1 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
                   className="absolute inset-0"
                 >
                   <Image
@@ -80,7 +96,9 @@ export default function HeroScrollDemo() {
                     src={src}
                     alt={`Gallery image ${index + 1}`}
                     className="object-cover"
-                    sizes="(max-width: 768px) 50vw, 25vw"
+                    sizes="(max-width: 768px) 25vw, 15vw"
+                    quality={60}
+                    loading="lazy"
                   />
                 </motion.div>
               </AnimatePresence>

@@ -1,9 +1,7 @@
 "use client"
-import { useState } from 'react';
+import { useState, lazy, Suspense, useRef, useEffect } from 'react';
 import { MenuIcon, XCircle, Link2, Mail, LinkedinIcon, GithubIcon } from 'lucide-react';
 import Image from 'next/image';
-import MacbookScrollDemo from './macbook-scroll-demo';
-import HeroScrollDemo from './hero-scroll-demo';
 import { CardHoverEffectDemo } from './cardSection';
 import { CometCard } from "@/components/ui/comet-card";
 import { Cover } from "@/components/ui/cover";
@@ -18,6 +16,42 @@ import {
   IconSend
 } from "@tabler/icons-react";
 
+// Lazy load heavy scroll-based components
+const MacbookScrollDemo = lazy(() => import('./macbook-scroll-demo'));
+const HeroScrollDemo = lazy(() => import('./hero-scroll-demo'));
+
+// Lazy-rendered section that only mounts when near the viewport
+function LazySection({ children, fallback, rootMargin = "200px" }: {
+  children: React.ReactNode;
+  fallback?: React.ReactNode;
+  rootMargin?: string;
+}) {
+  const [show, setShow] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShow(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [rootMargin]);
+
+  return (
+    <div ref={ref}>
+      {show ? children : fallback || <div style={{ minHeight: '50vh' }} />}
+    </div>
+  );
+}
+
 const HomePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -31,11 +65,11 @@ const HomePage = () => {
       image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop"
     },
     {
-      title: "Project 2",
-      description: "A brief description of your second project",
+      title: "space runner",
+      description: "if you are bored so far play a game i build using react !",
       tags: ["Next.js", "Tailwind", "Firebase"],
-      link: "#",
-      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop"
+      link: "https://space-runner-roan.vercel.app/",
+      image: "/space_runner.png"
     },
     {
       title: "Project 3",
@@ -91,7 +125,7 @@ const HomePage = () => {
       <section className="pt-32 pb-16 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-2">
           <div className="flex-1">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 font-[family-name:var(--font-display)]">
               Hi, I&apos;m <span className="text-blue-400">Roneet Bala</span>
             </h1>
             <p className="text-xl text-gray-400 mb-6">
@@ -116,37 +150,44 @@ const HomePage = () => {
               className="rounded w-70 h-100 object-cover"
               width={700}
               height={700}
+              priority
+              quality={75}
+              sizes="(max-width: 768px) 80vw, 350px"
             />
           </div>
         </div>
 
         {/* Cover Demo Section */}
         <div className="mt-20">
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-semibold max-w-7xl mx-auto text-center mt-6 relative z-20 py-6 text-white">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-semibold max-w-7xl mx-auto text-center mt-6 relative z-20 py-6 text-white font-[family-name:var(--font-display)]">
             Build amazing websites <br /> at <Cover className="text-blue-400">warp speed</Cover>
           </h1>
         </div>
       </section>
 
-      {/* Macbook Scroll Hero Section */}
-      <div className="pt-8">
-        <MacbookScrollDemo />
-      </div>
+      {/* Macbook Scroll Hero Section - lazy loaded */}
+      <LazySection fallback={<div style={{ minHeight: '200vh' }} />}>
+        <Suspense fallback={<div style={{ minHeight: '200vh' }} />}>
+          <div className="pt-8">
+            <MacbookScrollDemo />
+          </div>
+        </Suspense>
+      </LazySection>
 
       {/* About Section */}
       <section id="about" className="py-16 bg-gray-800/50 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">About Me</h2>
+          <h2 className="text-4xl font-bold mb-8 font-[family-name:var(--font-display)] tracking-tight">About Me</h2>
           <div className="mb-12">
             <p className="text-gray-300 mb-4">
-              Hi, I’m Roneet Bala Aka OMI,I am a Freshly Graduated Coder with a passion for creating and designing since my childhood.
-              Whether it’s building innovative digital solutions or designing intuitive experiences, I’ve always been drawn to the creative process.
-              Beyond coding, I’m a big fan of Marvel, Bitcoin,and stock trading (especially F&O).
+              Hi, I&apos;m Roneet Bala Aka OMI, I am a Freshly Graduated Coder with a passion for creating and designing since my childhood.
+              Whether it&apos;s building innovative digital solutions or designing intuitive experiences, I&apos;ve always been drawn to the creative process.
+              Beyond coding, I&apos;m a big fan of Marvel, Bitcoin, and stock trading (especially F&amp;O).
               I love the thrill of market analysis and strategy, much like my gaming sessions in Fortnite and Warzone, where quick thinking and creativity rule.
               My academic journey has shaped my problem-solving skills, and
-              I’m constantly exploring new ways to merge my passions into impactful projects.
+              I&apos;m constantly exploring new ways to merge my passions into impactful projects.
 
-              Let’s connect and see how we can collaborate!
+              Let&apos;s connect and see how we can collaborate!
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -159,11 +200,16 @@ const HomePage = () => {
                     className="rounded-lg hover:scale-105 transition-transform duration-300"
                     width={400}
                     height={400}
+                    loading="lazy"
+                    quality={70}
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 ) : (
                   <video
                     autoPlay loop muted playsInline
+                    preload="none"
                     className="rounded-lg hover:scale-105 transition-transform duration-300 w-full h-auto"
+                    poster=""
                   >
                     <source src={item.src} type="video/mp4" />
                     Your browser does not support the video tag.
@@ -176,8 +222,12 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Hero Scroll Gallery Section */}
-      <HeroScrollDemo />
+      {/* Hero Scroll Gallery Section - lazy loaded */}
+      <LazySection fallback={<div style={{ minHeight: '80rem' }} />}>
+        <Suspense fallback={<div style={{ minHeight: '80rem' }} />}>
+          <HeroScrollDemo />
+        </Suspense>
+      </LazySection>
 
       <CardHoverEffectDemo />
 
@@ -186,22 +236,22 @@ const HomePage = () => {
       {/* Key Components Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-blue-500/5 blur-3xl rounded-full -z-10" />
-        <h2 className="px-4 text-3xl font-bold text-center mb-16 tracking-tight">KEY COMPONENTS</h2>
+        <h2 className="px-4 text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-16 tracking-tight">My Key Components</h2>
 
         {/* Transparent Plates with Infinite Scroll */}
         <div className="relative flex overflow-x-hidden">
-          <div className="py-12 animate-marquee whitespace-nowrap flex gap-8">
+          <div className="py-12 animate-marquee whitespace-nowrap flex gap-8 [will-change:transform]">
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex gap-8 px-4">
                 {[
-                  "Process improvement", "Data-driven strategic planning", "Cost-benefit analysis",
-                  "Report writing", "Honesty", "Prompt designing", "Critical thinking",
-                  "Excellent communication", "Interpersonal skills", "Organisational skills",
-                  "Proactive", "Design Expertise"
+                  "Can Make Good Jokes", "A good Scuba-Diver (80meter)", "Self-Motivated",
+                  "Creative and Attentive", "Can do great", "Code stitching",
+                  "Communication is my weapon", "Strong interpersonal skills", 
+                  "Proactive in almost everything", "Prompting expert"
                 ].map((skill, index) => (
                   <div
                     key={index}
-                    className="bg-white/5 backdrop-blur-md border border-white/10 px-8 py-4 rounded-2xl text-white font-medium hover:bg-white/10 transition-all duration-300 hover:scale-105 shadow-xl"
+                    className="bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-xl border border-white/30 shadow-[0_8px_32px_0_rgba(255,255,255,0.1),inset_0_1px_1px_rgba(255,255,255,0.4)] px-8 py-4 rounded-[2rem] text-white font-medium transition-all duration-300 hover:-translate-y-2 hover:bg-white/20 hover:shadow-[0_16px_40px_0_rgba(255,255,255,0.2),inset_0_2px_2px_rgba(255,255,255,0.5)]"
                   >
                     {skill}
                   </div>
@@ -211,19 +261,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* Floating Dock */}
-        <div className="mt-20 flex flex-col items-center justify-center space-y-8 px-4">
-          <p className="text-gray-400 text-sm font-mono tracking-widest uppercase">Connect & Explore</p>
-          <FloatingDock
-            items={[
-              { title: "GitHub", icon: <IconBrandGithub className="w-full h-full" />, href: "https://github.com/r0neet" },
-              { title: "LinkedIn", icon: <IconBrandLinkedin className="w-full h-full" />, href: "https://www.linkedin.com/in/roneetbala/" },
-              { title: "Email", icon: <IconMail className="w-full h-full" />, href: "mailto:roneetbala2002@gmail.com" },
-              { title: "Dev", icon: <IconTerminal2 className="w-full h-full" />, href: "#" },
-              { title: "Projects", icon: <IconCode className="w-full h-full" />, href: "#projects" },
-            ]}
-          />
-        </div>
+
       </section>
 
 
@@ -232,7 +270,7 @@ const HomePage = () => {
       {/* Projects Section */}
       <section id="projects" className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">Projects</h2>
+          <h2 className="text-4xl font-bold mb-8 font-[family-name:var(--font-display)] tracking-tight">Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => (
               <CometCard key={index}>
@@ -250,6 +288,8 @@ const HomePage = () => {
                         alt={project.title}
                         src={project.image}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        loading="lazy"
+                        quality={70}
                         style={{
                           boxShadow: "rgba(0, 0, 0, 0.05) 0px 5px 6px 0px",
                         }}
@@ -288,7 +328,7 @@ const HomePage = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-blue-500/5 blur-[120px] -z-10" />
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
+            <h2 className="text-4xl font-bold mb-4 font-[family-name:var(--font-display)] tracking-tight">Get In Touch</h2>
             <p className="text-gray-400">Let&apos;s build something amazing together.</p>
           </div>
 

@@ -19,10 +19,16 @@ export default {
 						"offset-distance": "100%",
 					},
 				},
+			sparkle: {
+					'0%': { opacity: '0', transform: 'scale(0) translate(0, 0)' },
+					'50%': { opacity: '1', transform: 'scale(1) translate(10px, -10px)' },
+					'100%': { opacity: '0', transform: 'scale(0.5) translate(20px, -20px)' },
+				},
 			},
 			animation: {
 				marquee: 'marquee 30s linear infinite',
 				"background-beam": "background-beam var(--duration) linear infinite",
+				sparkle: 'sparkle 1.5s ease-in-out infinite',
 			},
 			colors: {
 				background: 'hsl(var(--background))',
