@@ -2,16 +2,13 @@
 import { useState, lazy, Suspense, useRef, useEffect } from 'react';
 import { MenuIcon, XCircle, Link2, Mail, LinkedinIcon, GithubIcon } from 'lucide-react';
 import Image from 'next/image';
-import { CardHoverEffectDemo } from './cardSection';
+import { CarouselDemo } from './carousel-demo';
 import { CometCard } from "@/components/ui/comet-card";
 import { Cover } from "@/components/ui/cover";
-import { FloatingDock } from "@/components/ui/floating-dock";
+import { ImagesBadge } from "@/components/ui/images-badge";
 import {
-  IconBrandGithub,
   IconBrandLinkedin,
   IconMail,
-  IconTerminal2,
-  IconCode,
   IconMessageCircle,
   IconSend
 } from "@tabler/icons-react";
@@ -58,11 +55,12 @@ const HomePage = () => {
   // Sample projects data - replace with your actual projects
   const projects = [
     {
-      title: "Project 1",
-      description: "A brief description of your first project",
+      title: "TikTok data set data analysis",
+      description: "A predictive model that can determine whether a video contains a claim or offers an opinion.",
       tags: ["React", "Node.js", "MongoDB"],
-      link: "#",
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop"
+      link: "https://coursera.org/share/cf6b9ae39a0dfcb9b3df99038e2beacd",
+      images: ["/eda.png", "/eda2.png"],
+      image: ""
     },
     {
       title: "space runner",
@@ -72,11 +70,11 @@ const HomePage = () => {
       image: "/space_runner.png"
     },
     {
-      title: "Project 3",
-      description: "A brief description of your third project",
+      title: "Airbnb Dashboard",
+      description: "A Data visualization of the Airbnb dataset.",
       tags: ["TypeScript", "GraphQL", "PostgreSQL"],
-      link: "#",
-      image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=1200&auto=format&fit=crop"
+      link: "https://public.tableau.com/app/profile/roneet.bala/viz/Airbnb2019_Dashboard/Dashboard1",
+      image: "/tablue.png"
     },
   ];
 
@@ -97,7 +95,7 @@ const HomePage = () => {
         <div className="bg-gray-900/60 backdrop-blur-lg border border-white/10 rounded-full px-8 py-3 flex items-center gap-8 shadow-2xl">
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            <a href="/about" className="text-sm font-medium hover:text-blue-400 transition-colors">About</a>
+            <a href="#about" className="text-sm font-medium hover:text-blue-400 transition-colors">About</a>
             <a href="#projects" className="text-sm font-medium hover:text-blue-400 transition-colors">Projects</a>
             <a href="#contact" className="text-sm font-medium hover:text-blue-400 transition-colors">Contact</a>
           </div>
@@ -222,6 +220,27 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Resume Badge Section */}
+      <section className="py-8 bg-black">
+        <div className="flex h-[10rem] w-full items-center justify-center">
+          <a href="/Resume%20(2).pdf" download className="cursor-pointer transform hover:scale-105 transition-transform duration-300">
+            <ImagesBadge
+              text="here is my resume!"
+              folderSize={{ width: 64, height: 48 }}
+              teaserImageSize={{ width: 40, height: 28 }}
+              hoverImageSize={{ width: 96, height: 64 }}
+              hoverTranslateY={-60}
+              hoverSpread={35}
+              images={[
+                "https://assets.aceternity.com/pro/agenforce-1.webp",
+                "https://assets.aceternity.com/pro/agenforce-2.webp",
+                "https://assets.aceternity.com/pro/agenforce-3.webp",
+              ]}
+            />
+          </a>
+        </div>
+      </section>
+
       {/* Hero Scroll Gallery Section - lazy loaded */}
       <LazySection fallback={<div style={{ minHeight: '80rem' }} />}>
         <Suspense fallback={<div style={{ minHeight: '80rem' }} />}>
@@ -229,14 +248,27 @@ const HomePage = () => {
         </Suspense>
       </LazySection>
 
-      <CardHoverEffectDemo />
+      <div className="max-w-5xl mx-auto px-8 my-16">
+        <div className="text-gray-400 text-center text-lg leading-relaxed mb-8 max-w-3xl mx-auto font-medium">
+          <p>A beginner photographer sees the world with curiosity and creativity.</p>
+          <p>They experiment with angles, light, and moments to improve every day.</p>
+          <p>Each photograph becomes a step toward mastering the art of storytelling.</p>
+          <p>Mistakes turn into lessons, helping them discover their unique style.</p>
+          <p>With passion behind the lens, every click captures a new experience.</p>
+        </div>
+      </div>
 
       {/*key components*/}
 
       {/* Key Components Section */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-blue-500/5 blur-3xl rounded-full -z-10" />
-        <h2 className="px-4 text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-16 tracking-tight">My Key Components</h2>
+      <section className="py-24 relative overflow-hidden bg-black">
+        {/* Futuristic Background */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
+        
+        <h2 className="px-4 text-5xl md:text-6xl lg:text-7xl font-black text-center mb-16 tracking-tighter relative z-10 text-transparent bg-clip-text bg-gradient-to-b from-white to-blue-500/50 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)] uppercase">
+          My Key Components
+        </h2>
 
         {/* Transparent Plates with Infinite Scroll */}
         <div className="relative flex overflow-x-hidden">
@@ -251,64 +283,88 @@ const HomePage = () => {
                 ].map((skill, index) => (
                   <div
                     key={index}
-                    className="bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-xl border border-white/30 shadow-[0_8px_32px_0_rgba(255,255,255,0.1),inset_0_1px_1px_rgba(255,255,255,0.4)] px-8 py-4 rounded-[2rem] text-white font-medium transition-all duration-300 hover:-translate-y-2 hover:bg-white/20 hover:shadow-[0_16px_40px_0_rgba(255,255,255,0.2),inset_0_2px_2px_rgba(255,255,255,0.5)]"
+                    className="relative group bg-[#0A0A0F]/80 backdrop-blur-xl border border-blue-500/20 px-8 py-4 rounded-full text-blue-50 font-mono text-sm tracking-widest uppercase transition-all duration-500 hover:-translate-y-1 hover:border-blue-400/60 hover:bg-blue-900/20 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:text-blue-200 overflow-hidden cursor-default"
                   >
-                    {skill}
+                    {/* Hover light sweep effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/20 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-out" />
+                    
+                    <span className="relative z-10 flex items-center gap-3">
+                      {/* Pulsing indicator */}
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_10px_#3b82f6] group-hover:animate-ping" />
+                      {skill}
+                    </span>
                   </div>
                 ))}
               </div>
             ))}
           </div>
         </div>
-
-
       </section>
 
-
-
+      {/* Worked With Section */}
+      <section className="py-24 relative overflow-hidden bg-black">
+        <h2 className="px-4 text-5xl md:text-6xl lg:text-7xl font-black text-center mb-16 tracking-tighter relative z-10 text-white uppercase">
+          WORKED WITH
+        </h2>
+        <CarouselDemo />
+      </section>
 
       {/* Projects Section */}
       <section id="projects" className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8 font-[family-name:var(--font-display)] tracking-tight">Projects</h2>
+          <h2 className="px-4 text-5xl md:text-6xl lg:text-7xl font-black text-center mb-16 tracking-tighter relative z-10 text-white uppercase">
+            Projects
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => (
               <CometCard key={index}>
                 <div
-                  className="flex flex-col items-stretch rounded-[16px] border border-gray-800 bg-[#1F2121] p-2 saturate-0 md:p-4 h-full"
+                  className="flex flex-col items-stretch rounded-[16px] border border-gray-700 bg-[#2C2E33] p-2 saturate-0 md:p-4 h-full"
                   style={{
                     transformStyle: "preserve-3d",
                   }}
                 >
                   <div className="mx-2 flex-1">
-                    <div className="relative mt-2 aspect-[16/10] w-full overflow-hidden rounded-[16px]">
-                      <Image
-                        fill
-                        className="bg-[#000000] object-cover contrast-75"
-                        alt={project.title}
-                        src={project.image}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        loading="lazy"
-                        quality={70}
-                        style={{
-                          boxShadow: "rgba(0, 0, 0, 0.05) 0px 5px 6px 0px",
-                        }}
-                      />
+                    <div className="relative mt-2 aspect-[16/10] w-full overflow-hidden rounded-[16px] flex gap-2">
+                      {project.images ? (
+                        project.images.map((img, i) => (
+                          <div key={i} className="relative flex-1 h-full rounded-[8px] overflow-hidden">
+                            <Image
+                              fill
+                              className="bg-[#000000] object-cover contrast-75"
+                              alt={`${project.title} ${i + 1}`}
+                              src={img}
+                              sizes="(max-width: 768px) 50vw, 16vw"
+                              loading="lazy"
+                              quality={70}
+                              style={{
+                                boxShadow: "rgba(0, 0, 0, 0.05) 0px 5px 6px 0px",
+                              }}
+                            />
+                          </div>
+                        ))
+                      ) : (
+                        <div className="relative w-full h-full">
+                          <Image
+                            fill
+                            className="bg-[#000000] object-cover contrast-75"
+                            alt={project.title}
+                            src={project.image}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            loading="lazy"
+                            quality={70}
+                            style={{
+                              boxShadow: "rgba(0, 0, 0, 0.05) 0px 5px 6px 0px",
+                            }}
+                          />
+                        </div>
+                      )}
                     </div>
                   </div>
                   <div className="p-4 flex flex-col flex-1">
                     <h3 className="text-xl font-bold mb-2 text-white">{project.title}</h3>
                     <p className="text-gray-400 text-sm mb-4 line-clamp-2">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4 mt-auto">
-                      {project.tags.map((tag, tagIndex) => (
-                        <span
-                          key={tagIndex}
-                          className="bg-blue-400/10 text-blue-400 px-2 py-1 rounded-full text-xs"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+
                     <a
                       href={project.link}
                       className="inline-flex items-center text-blue-400 hover:text-blue-300 text-sm font-mono mt-2"

@@ -1,30 +1,19 @@
 import React from "react";
 import { MacbookScroll } from "@/components/ui/macbook-scroll";
-import { Mail, LinkedinIcon, GithubIcon } from 'lucide-react';
+
 
 export default function MacbookScrollDemo() {
   return (
-    <div className="w-full overflow-hidden bg-white dark:bg-[#0B0B0F]">
+    <div className="w-full overflow-hidden bg-transparent">
       <MacbookScroll
         title={
-          <div className="flex flex-col items-center">
-            <span>
-              Hi, I&apos;m <span className="text-blue-400">Roneet Bala</span><br />
-              <span className="text-xl md:text-3xl text-gray-400 mt-2 block">
-                Full Stack Developer | Creating digital experiences
-              </span>
-            </span>
-            <div className="flex gap-6 mt-6">
-              <a href="https://github.com/r0neet" className="p-2 text-white hover:text-blue-400 transition-colors">
-                <GithubIcon size={28} />
-              </a>
-              <a href="https://www.linkedin.com/in/roneetbala/" className="p-2 text-white hover:text-blue-400 transition-colors">
-                <LinkedinIcon size={28} />
-              </a>
-              <a href="mailto:roneetbala2002@gmail.com" className="p-2 text-white hover:text-blue-400 transition-colors">
-                <Mail size={28} />
-              </a>
-            </div>
+          <div className="flex flex-col items-center justify-center mb-8">
+            <h1 
+              className="text-7xl md:text-[120px] font-black uppercase tracking-tighter text-transparent drop-shadow-2xl"
+              style={{ WebkitTextStroke: "3px rgba(255, 255, 255, 0.8)" }}
+            >
+              I AM A!
+            </h1>
           </div>
         }
         badge={

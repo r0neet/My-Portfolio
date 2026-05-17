@@ -13,6 +13,15 @@ export async function POST(req: Request) {
             );
         }
 
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return NextResponse.json(
+                { error: "Please enter a valid email address" },
+                { status: 400 }
+            );
+        }
+
         // Since we don't have real credentials, we will use a dedicated service 
         // or suggest the user to set up environment variables.
         // However, I will set up the logic assuming standard env variables.

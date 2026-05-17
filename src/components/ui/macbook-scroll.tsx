@@ -69,7 +69,7 @@ export const MacbookScroll = ({
   return (
     <div
       ref={ref}
-      className="flex min-h-[200vh] shrink-0 scale-[0.35] transform flex-col items-center justify-start py-0 [perspective:800px] sm:scale-50 md:scale-100 md:py-80"
+      className="flex min-h-[200vh] shrink-0 scale-[0.35] transform flex-col items-center justify-start py-0 [perspective:800px] sm:scale-50 md:scale-100 md:pt-0 md:pb-80"
     >
       <motion.h2
         style={{
@@ -162,8 +162,9 @@ export const Lid = ({
           translateY: translate,
           transformStyle: "preserve-3d",
           transformOrigin: "top",
+          willChange: "transform",
         }}
-        className="absolute inset-0 h-96 w-[32rem] rounded-2xl bg-[#010101] p-2"
+        className="absolute inset-0 h-96 w-[32rem] rounded-2xl bg-[#010101] p-2 [will-change:transform]"
       >
         <div className="absolute inset-0 rounded-lg bg-[#272729]" />
         <Image
@@ -171,6 +172,9 @@ export const Lid = ({
           src={src as string}
           alt="aceternity logo"
           className="rounded-lg object-cover object-left-top"
+          quality={60}
+          priority
+          sizes="(max-width: 768px) 100vw, 1024px"
         />
       </motion.div>
     </div>
