@@ -14,24 +14,25 @@ export function CarouselDemo() {
     {
       title: "SEE ANDAMANS",
       button: "Explore Component",
-      src: "https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=3534&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/anda.jpeg",
+      link: "https://see-andamans.vercel.app/",
     },
     {
       title: "CORE 9",
       button: "Explore Component",
-      src: "https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/core.jpeg",
       link: "https://project-core-9.vercel.app/",
     },
     {
       title: "INDIAN NAVY",
       button: "Explore Component",
-      src: "https://images.unsplash.com/photo-1679420437432-80cfbf88986c?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/navy.jpeg",
       onClick: () => alert("Sorry, Content is Classified as per my Contract"),
     },
   ];
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto px-12 md:px-20 py-10">
+    <div className="relative w-full max-w-7xl mx-auto px-4 md:px-20 py-6 md:py-10">
       <Carousel
         opts={{
           align: "start",
@@ -41,7 +42,7 @@ export function CarouselDemo() {
       >
         <CarouselContent className="-ml-4">
           {slideData.map((slide, index) => (
-            <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={index} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
               <div className="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900 border border-white/10">
                 <Image
                   src={slide.src}

@@ -36,7 +36,7 @@ export const ContainerScroll = ({
   }, []);
 
   const scaleDimensions = useMemo(() => {
-    return isMobile ? [0.7, 0.9] : [1.05, 1];
+    return isMobile ? [0.85, 0.95] : [1.05, 1];
   }, [isMobile]);
 
   const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
@@ -45,7 +45,7 @@ export const ContainerScroll = ({
 
   return (
     <div
-      className="h-[50rem] md:h-[60rem] flex items-center justify-center relative p-2 md:p-10"
+      className="h-[48rem] md:h-[60rem] flex items-center justify-center relative p-2 md:p-10"
       ref={containerRef}
     >
       <div

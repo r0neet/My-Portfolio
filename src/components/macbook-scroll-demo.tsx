@@ -1,32 +1,96 @@
-import React from "react";
+"use client";
+import React, { useRef } from "react";
 import { MacbookScroll } from "@/components/ui/macbook-scroll";
+import { useScroll, useTransform, motion } from "motion/react";
+import Image from "next/image";
 
+// Mobile-only: scroll-driven image that expands to fill screen
+function MobileImageReveal() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
 
-export default function MacbookScrollDemo() {
+  // As user scrolls: image grows from a small card to full-screen
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.55, 0.85, 1.0]);
+  const borderRadius = useTransform(scrollYProgress, [0, 0.5, 1], [32, 16, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.15], [0, 1]);
+
   return (
-    <div className="w-full overflow-hidden bg-transparent">
-      <MacbookScroll
-        title={
-          <div className="flex flex-col items-center justify-center mb-8">
-            <h1 
-              className="text-7xl md:text-[120px] font-black uppercase tracking-tighter text-transparent drop-shadow-2xl"
-              style={{ WebkitTextStroke: "3px rgba(255, 255, 255, 0.8)" }}
-            >
-              I AM A!
-            </h1>
-          </div>
-        }
-        badge={
-          <a href="https://peerlist.io/manuarora">
-            <Badge className="h-10 w-10 -rotate-12 transform" />
-          </a>
-        }
-        src={`/linear.webp`}
-        showGradient={false}
-      />
+    <div
+      ref={ref}
+      className="relative flex flex-col items-center justify-center min-h-[140vh] py-16"
+    >
+      {/* Sticky title */}
+      <div className="sticky top-8 z-10 text-center px-4 mb-0 pointer-events-none">
+        <h1
+          className="text-4xl font-black uppercase tracking-tighter text-transparent drop-shadow-2xl"
+          style={{ WebkitTextStroke: "2px rgba(255, 255, 255, 0.8)" }}
+        >
+          I AM A!
+        </h1>
+      </div>
+
+      {/* Scroll-expanding image */}
+      <div className="sticky top-16 w-full flex items-center justify-center overflow-hidden">
+        <motion.div
+          style={{
+            scale,
+            borderRadius,
+            opacity,
+          }}
+          className="w-full overflow-hidden shadow-2xl"
+        >
+          <Image
+            src="/linear.webp"
+            alt="I AM A!"
+            width={800}
+            height={500}
+            className="w-full h-auto object-cover"
+            priority
+            quality={75}
+          />
+        </motion.div>
+      </div>
     </div>
   );
 }
+
+export default function MacbookScrollDemo() {
+  return (
+    <>
+      {/* Mobile: scroll-expanding image */}
+      <div className="block md:hidden w-full overflow-hidden bg-transparent">
+        <MobileImageReveal />
+      </div>
+
+      {/* Desktop: original 3D MacBook scroll */}
+      <div className="hidden md:block w-full overflow-hidden bg-transparent">
+        <MacbookScroll
+          title={
+            <div className="flex flex-col items-center justify-center mb-8">
+              <h1
+                className="text-7xl md:text-[120px] font-black uppercase tracking-tighter text-transparent drop-shadow-2xl"
+                style={{ WebkitTextStroke: "3px rgba(255, 255, 255, 0.8)" }}
+              >
+                I AM A!
+              </h1>
+            </div>
+          }
+          badge={
+            <a href="https://peerlist.io/manuarora">
+              <Badge className="h-10 w-10 -rotate-12 transform" />
+            </a>
+          }
+          src={`/linear.webp`}
+          showGradient={false}
+        />
+      </div>
+    </>
+  );
+}
+
 // Peerlist logo
 const Badge = ({ className }: { className?: string }) => {
   return (
@@ -69,3 +133,4 @@ const Badge = ({ className }: { className?: string }) => {
     </svg>
   );
 };
+

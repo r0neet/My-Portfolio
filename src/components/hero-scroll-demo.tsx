@@ -67,16 +67,16 @@ export default function HeroScrollDemo() {
       <ContainerScroll
         titleComponent={
           <>
-            <h1 className="text-4xl md:text-5xl font-bold text-white tracking-wide">
+          <h1 className="text-3xl md:text-5xl font-bold text-white tracking-wide">
               FREESTYLE FRAMES <br />
-              <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
+              <span className="text-3xl md:text-[6rem] font-bold mt-1 leading-none">
                 THROUGH MY LENS
               </span>
             </h1>
           </>
         }
       >
-        <div className="grid grid-cols-4 grid-rows-2 gap-2 md:gap-3 h-full w-full p-1 md:p-2">
+        <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-4 md:grid-rows-2 gap-2 md:gap-3 h-full w-full p-1 md:p-2">
           {gridImages.map((src, index) => (
             <div
               key={index}

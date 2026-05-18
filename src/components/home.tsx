@@ -120,7 +120,7 @@ const HomePage = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4">
+      <section className="pt-24 md:pt-32 pb-8 md:pb-16 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-2">
           <div className="flex-1">
             <h1 className="text-5xl md:text-6xl font-bold mb-4 font-[family-name:var(--font-display)]">
@@ -141,23 +141,23 @@ const HomePage = () => {
               </a>
             </div>
           </div>
-          <div className="flex-1 flex justify-center overflow-hidden">
+          <div className="flex-1 flex justify-center overflow-hidden mt-6 md:mt-0">
             <Image
               src="/hero.jpeg"
               alt="Your Profile"
-              className="rounded w-70 h-100 object-cover"
+              className="rounded-2xl w-full h-auto md:max-w-md object-cover shadow-2xl"
               width={700}
               height={700}
               priority
-              quality={75}
-              sizes="(max-width: 768px) 80vw, 350px"
+              quality={85}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
         </div>
 
         {/* Cover Demo Section */}
-        <div className="mt-20">
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-semibold max-w-7xl mx-auto text-center mt-6 relative z-20 py-6 text-white font-[family-name:var(--font-display)]">
+        <div className="mt-10 md:mt-20">
+          <h1 className="text-3xl md:text-5xl lg:text-7xl font-semibold max-w-7xl mx-auto text-center mt-6 relative z-20 py-4 md:py-6 text-white font-[family-name:var(--font-display)]">
             Build amazing websites <br /> at <Cover className="text-blue-400">warp speed</Cover>
           </h1>
         </div>
@@ -173,7 +173,7 @@ const HomePage = () => {
       </LazySection>
 
       {/* About Section */}
-      <section id="about" className="py-16 bg-gray-800/50 px-4">
+      <section id="about" className="py-10 md:py-16 bg-gray-800/50 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold mb-8 font-[family-name:var(--font-display)] tracking-tight">About Me</h2>
           <div className="mb-12">
@@ -188,14 +188,14 @@ const HomePage = () => {
               Let&apos;s connect and see how we can collaborate!
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
             {galleryImages.map((item, index) => (
               <div key={index} className="rounded-lg overflow-hidden">
                 {item.type === "image" ? (
                   <Image
                     src={item.src}
                     alt={`Gallery image ${index + 1}`}
-                    className="rounded-lg hover:scale-105 transition-transform duration-300"
+                    className="rounded-lg hover:scale-105 transition-transform duration-300 w-full h-48 md:h-auto object-cover"
                     width={400}
                     height={400}
                     loading="lazy"
@@ -206,7 +206,7 @@ const HomePage = () => {
                   <video
                     autoPlay loop muted playsInline
                     preload="none"
-                    className="rounded-lg hover:scale-105 transition-transform duration-300 w-full h-auto"
+                    className="rounded-lg hover:scale-105 transition-transform duration-300 w-full h-48 md:h-auto object-cover"
                     poster=""
                   >
                     <source src={item.src} type="video/mp4" />
@@ -248,8 +248,8 @@ const HomePage = () => {
         </Suspense>
       </LazySection>
 
-      <div className="max-w-5xl mx-auto px-8 my-16">
-        <div className="text-gray-400 text-center text-lg leading-relaxed mb-8 max-w-3xl mx-auto font-medium">
+      <div className="max-w-5xl mx-auto px-6 my-8 md:my-16">
+        <div className="text-gray-400 text-center text-base md:text-lg leading-relaxed mb-6 md:mb-8 max-w-3xl mx-auto font-medium">
           <p>A beginner photographer sees the world with curiosity and creativity.</p>
           <p>They experiment with angles, light, and moments to improve every day.</p>
           <p>Each photograph becomes a step toward mastering the art of storytelling.</p>
@@ -261,18 +261,18 @@ const HomePage = () => {
       {/*key components*/}
 
       {/* Key Components Section */}
-      <section className="py-24 relative overflow-hidden bg-black">
+      <section className="py-12 md:py-24 relative overflow-hidden bg-black">
         {/* Futuristic Background */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
         
-        <h2 className="px-4 text-5xl md:text-6xl lg:text-7xl font-black text-center mb-16 tracking-tighter relative z-10 text-transparent bg-clip-text bg-gradient-to-b from-white to-blue-500/50 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)] uppercase">
+        <h2 className="px-4 text-4xl md:text-6xl lg:text-7xl font-black text-center mb-8 md:mb-16 tracking-tighter relative z-10 text-transparent bg-clip-text bg-gradient-to-b from-white to-blue-500/50 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)] uppercase">
           My Key Components
         </h2>
 
         {/* Transparent Plates with Infinite Scroll */}
         <div className="relative flex overflow-x-hidden">
-          <div className="py-12 animate-marquee whitespace-nowrap flex gap-8 [will-change:transform]">
+          <div className="py-6 md:py-12 animate-marquee whitespace-nowrap flex gap-8 [will-change:transform]">
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex gap-8 px-4">
                 {[
@@ -302,17 +302,17 @@ const HomePage = () => {
       </section>
 
       {/* Worked With Section */}
-      <section className="py-24 relative overflow-hidden bg-black">
-        <h2 className="px-4 text-5xl md:text-6xl lg:text-7xl font-black text-center mb-16 tracking-tighter relative z-10 text-white uppercase">
+      <section className="py-12 md:py-24 relative overflow-hidden bg-black">
+        <h2 className="px-4 text-4xl md:text-6xl lg:text-7xl font-black text-center mb-8 md:mb-16 tracking-tighter relative z-10 text-white uppercase">
           WORKED WITH
         </h2>
         <CarouselDemo />
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-16 px-4">
+      <section id="projects" className="py-10 md:py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="px-4 text-5xl md:text-6xl lg:text-7xl font-black text-center mb-16 tracking-tighter relative z-10 text-white uppercase">
+          <h2 className="px-4 text-4xl md:text-6xl lg:text-7xl font-black text-center mb-8 md:mb-16 tracking-tighter relative z-10 text-white uppercase">
             Projects
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
