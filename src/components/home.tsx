@@ -59,7 +59,7 @@ const HomePage = () => {
       description: "A predictive model that can determine whether a video contains a claim or offers an opinion.",
       tags: ["React", "Node.js", "MongoDB"],
       link: "https://coursera.org/share/cf6b9ae39a0dfcb9b3df99038e2beacd",
-      images: ["/eda.png", "/eda2.png"],
+      images: ["/eda.webp", "/eda2.webp"],
       image: ""
     },
     {
@@ -67,21 +67,21 @@ const HomePage = () => {
       description: "if you are bored so far play a game i build using react !",
       tags: ["Next.js", "Tailwind", "Firebase"],
       link: "https://space-runner-roan.vercel.app/",
-      image: "/space_runner.png"
+      image: "/space_runner.webp"
     },
     {
       title: "Airbnb Dashboard",
       description: "A Data visualization of the Airbnb dataset.",
       tags: ["TypeScript", "GraphQL", "PostgreSQL"],
       link: "https://public.tableau.com/app/profile/roneet.bala/viz/Airbnb2019_Dashboard/Dashboard1",
-      image: "/tablue.png"
+      image: "/tablue.webp"
     },
   ];
 
   // Sample gallery images - replace with your actual images
   const galleryImages = [
-    { type: "image", src: "/image.jpg" },
-    { type: "image", src: "/IMG_9371.jpg" },
+    { type: "image", src: "/image.webp" },
+    { type: "image", src: "/IMG_9371.webp" },
     { type: "video", src: "/cod.mp4" },
   ];
 
@@ -143,7 +143,7 @@ const HomePage = () => {
           </div>
           <div className="flex-1 flex justify-center overflow-hidden mt-6 md:mt-0">
             <Image
-              src="/hero.jpeg"
+              src="/hero.webp"
               alt="Your Profile"
               className="rounded-2xl w-full h-auto md:max-w-md object-cover shadow-2xl"
               width={700}

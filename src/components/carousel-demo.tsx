@@ -14,19 +14,19 @@ export function CarouselDemo() {
     {
       title: "SEE ANDAMANS",
       button: "Explore Component",
-      src: "/anda.jpeg",
+      src: "/anda.webp",
       link: "https://see-andamans.vercel.app/",
     },
     {
       title: "CORE 9",
       button: "Explore Component",
-      src: "/core.jpeg",
+      src: "/core.webp",
       link: "https://project-core-9.vercel.app/",
     },
     {
       title: "INDIAN NAVY",
       button: "Explore Component",
-      src: "/navy.jpeg",
+      src: "/navy.webp",
       onClick: () => alert("Sorry, Content is Classified as per my Contract"),
     },
   ];
