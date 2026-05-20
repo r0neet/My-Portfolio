@@ -20,7 +20,7 @@ function MobileImageReveal() {
   return (
     <div
       ref={ref}
-      className="relative flex flex-col items-center justify-center min-h-[140vh] py-16"
+      className="relative flex flex-col items-center justify-center min-h-[90vh] py-4"
     >
       {/* Sticky title */}
       <div className="sticky top-8 z-10 text-center px-4 mb-0 pointer-events-none">

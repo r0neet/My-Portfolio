@@ -163,27 +163,26 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Macbook Scroll Hero Section - lazy loaded */}
       <LazySection fallback={
-        <div className="pt-8 w-full">
-          <div className="block md:hidden min-h-[140vh] py-16" />
+        <div className="pt-0 md:pt-8 w-full">
+          <div className="block md:hidden min-h-[90vh] py-4" />
           <div className="hidden md:block min-h-[200vh]" />
         </div>
       }>
         <Suspense fallback={
-          <div className="pt-8 w-full">
-            <div className="block md:hidden min-h-[140vh] py-16" />
+          <div className="pt-0 md:pt-8 w-full">
+            <div className="block md:hidden min-h-[90vh] py-4" />
             <div className="hidden md:block min-h-[200vh]" />
           </div>
         }>
-          <div className="pt-8">
+          <div className="pt-0 md:pt-8">
             <MacbookScrollDemo />
           </div>
         </Suspense>
       </LazySection>
 
       {/* About Section */}
-      <section id="about" className="py-10 md:py-16 bg-gray-800/50 px-4">
+      <section id="about" className="pt-4 pb-10 md:py-16 bg-gray-800/50 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold mb-8 font-[family-name:var(--font-display)] tracking-tight">About Me</h2>
           <div className="mb-12">
