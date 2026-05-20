@@ -6,18 +6,18 @@ import Image from "next/image";
 
 // All 12 images that will rotate through the 8 grid slots
 const ALL_IMAGES = [
-  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443288/img1_lrgxxo.png",
-  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443290/img2_hzx4mx.png",
-  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443296/img3_b9otf3.png",
-  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443299/img4_fpovju.jpg",
-  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443299/img5_cpeq2e.png",
-  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443287/img6_pzpvhi.jpg",
-  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443297/img7_bspqs6.jpg",
-  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443295/img8_o2swfm.jpg",
-  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443299/img9_psehkh.jpg",
-  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443299/img10_kd8puj.jpg",
-  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443298/img11_clxrar.jpg",
-  "https://res.cloudinary.com/dsrquoqqm/image/upload/v1778443294/img12_bffy4f.jpg",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1778443288/img1_lrgxxo.png",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1778443290/img2_hzx4mx.png",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1778443296/img3_b9otf3.png",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1778443299/img4_fpovju.jpg",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1778443299/img5_cpeq2e.png",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1778443287/img6_pzpvhi.jpg",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1778443297/img7_bspqs6.jpg",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1778443295/img8_o2swfm.jpg",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1778443299/img9_psehkh.jpg",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1778443299/img10_kd8puj.jpg",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1778443298/img11_clxrar.jpg",
+  "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1778443294/img12_bffy4f.jpg",
 ];
 
 export default function HeroScrollDemo() {
@@ -92,10 +92,11 @@ export default function HeroScrollDemo() {
                   className="absolute inset-0"
                 >
                   <Image
-                    fill
+                    width={800}
+                    height={800}
                     src={src}
                     alt={`Gallery image ${index + 1}`}
-                    className="object-cover"
+                    className="w-full h-full object-cover"
                     sizes="(max-width: 768px) 25vw, 15vw"
                     quality={60}
                     loading="lazy"

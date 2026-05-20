@@ -164,8 +164,18 @@ const HomePage = () => {
       </section>
 
       {/* Macbook Scroll Hero Section - lazy loaded */}
-      <LazySection fallback={<div style={{ minHeight: '200vh' }} />}>
-        <Suspense fallback={<div style={{ minHeight: '200vh' }} />}>
+      <LazySection fallback={
+        <div className="pt-8 w-full">
+          <div className="block md:hidden min-h-[140vh] py-16" />
+          <div className="hidden md:block min-h-[200vh]" />
+        </div>
+      }>
+        <Suspense fallback={
+          <div className="pt-8 w-full">
+            <div className="block md:hidden min-h-[140vh] py-16" />
+            <div className="hidden md:block min-h-[200vh]" />
+          </div>
+        }>
           <div className="pt-8">
             <MacbookScrollDemo />
           </div>
@@ -208,6 +218,8 @@ const HomePage = () => {
                     preload="none"
                     className="rounded-lg hover:scale-105 transition-transform duration-300 w-full h-48 md:h-auto object-cover"
                     poster=""
+                    width={400}
+                    height={400}
                   >
                     <source src={item.src} type="video/mp4" />
                     Your browser does not support the video tag.
@@ -242,8 +254,8 @@ const HomePage = () => {
       </section>
 
       {/* Hero Scroll Gallery Section - lazy loaded */}
-      <LazySection fallback={<div style={{ minHeight: '80rem' }} />}>
-        <Suspense fallback={<div style={{ minHeight: '80rem' }} />}>
+      <LazySection fallback={<div className="h-[48rem] md:h-[60rem] w-full" />}>
+        <Suspense fallback={<div className="h-[48rem] md:h-[60rem] w-full" />}>
           <HeroScrollDemo />
         </Suspense>
       </LazySection>
@@ -319,7 +331,7 @@ const HomePage = () => {
             {projects.map((project, index) => (
               <CometCard key={index}>
                 <div
-                  className="flex flex-col items-stretch rounded-[16px] border border-gray-700 bg-[#2C2E33] p-2 saturate-0 md:p-4 h-full"
+                  className="card flex flex-col items-stretch rounded-[16px] border border-gray-700 bg-[#2C2E33] p-2 saturate-0 md:p-4 h-full"
                   style={{
                     transformStyle: "preserve-3d",
                   }}
@@ -330,8 +342,9 @@ const HomePage = () => {
                         project.images.map((img, i) => (
                           <div key={i} className="relative flex-1 h-full rounded-[8px] overflow-hidden">
                             <Image
-                              fill
-                              className="bg-[#000000] object-cover contrast-75"
+                              width={800}
+                              height={600}
+                              className="w-full h-full bg-[#000000] object-cover contrast-75"
                               alt={`${project.title} ${i + 1}`}
                               src={img}
                               sizes="(max-width: 768px) 50vw, 16vw"
@@ -346,8 +359,9 @@ const HomePage = () => {
                       ) : (
                         <div className="relative w-full h-full">
                           <Image
-                            fill
-                            className="bg-[#000000] object-cover contrast-75"
+                            width={800}
+                            height={600}
+                            className="w-full h-full bg-[#000000] object-cover contrast-75"
                             alt={project.title}
                             src={project.image}
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

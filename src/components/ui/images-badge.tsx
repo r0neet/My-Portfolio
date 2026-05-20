@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "motion/react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface ImagesBadgeProps {
@@ -137,10 +138,12 @@ export function ImagesBadge({
                 zIndex: 10 + index,
               }}
             >
-              <img
+              <Image
                 src={image}
                 alt={`Preview ${index + 1}`}
-                className="h-full w-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </motion.div>
           );
